@@ -46,3 +46,24 @@ nav {
         display: none;
     }
 }
+
+
+.flag-container {
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+}
+
+.sa-flag {
+    height: 30px;
+    width: auto;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive Design for Flag */
+@media (max-width: 768px) {
+    .sa-flag {
+        height: 25px;
+    }
+}
