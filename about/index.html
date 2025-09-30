@@ -1,0 +1,772 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" href="/styles/navbar.css" />
+    <link rel="stylesheet" href="/styles/footer.css" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About Us | Inkatha Development Cabinetry</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Open Sans", sans-serif;
+        color: #2c3e50;
+        line-height: 1.6;
+      }
+
+      h1,
+      h2,
+      h3,
+      h4 {
+        font-family: "Montserrat", sans-serif;
+      }
+
+      /* Page Header */
+      .page-header {
+        background: linear-gradient(
+            135deg,
+            rgba(30, 58, 95, 0.92),
+            rgba(74, 144, 226, 0.88)
+          ),
+          url("https://images.unsplash.com/photo-1497366216548-37526070297c?w=1600")
+            center/cover;
+        color: white;
+        padding: 8rem 5% 4rem;
+        text-align: center;
+      }
+
+      .page-header h1 {
+        font-size: 3rem;
+        margin-bottom: 1rem;
+        font-weight: 700;
+      }
+
+      .page-header p {
+        font-size: 1.2rem;
+        opacity: 0.95;
+        max-width: 700px;
+        margin: 0 auto;
+      }
+
+      /* Our Story Section */
+      .our-story {
+        padding: 5rem 5%;
+        background: white;
+      }
+
+      .section-content {
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .story-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 4rem;
+        align-items: center;
+        margin-top: 3rem;
+      }
+
+      .story-text h2 {
+        font-size: 2.5rem;
+        color: #1e3a5f;
+        margin-bottom: 1.5rem;
+      }
+
+      .story-text p {
+        font-size: 1.1rem;
+        line-height: 1.8;
+        color: #555;
+        margin-bottom: 1.5rem;
+      }
+
+      .story-image {
+        background: linear-gradient(
+            135deg,
+            rgba(74, 144, 226, 0.1),
+            rgba(30, 58, 95, 0.1)
+          ),
+          url("https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?w=800")
+            center/cover;
+        height: 500px;
+        border-radius: 8px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+      }
+
+      /* Values Section */
+      .values {
+        padding: 5rem 5%;
+        background: #f8fbff;
+      }
+
+      .section-title {
+        font-size: 2.5rem;
+        color: #1e3a5f;
+        margin-bottom: 1rem;
+        text-align: center;
+      }
+
+      .section-subtitle {
+        text-align: center;
+        color: #4a90e2;
+        font-size: 1.1rem;
+        margin-bottom: 3rem;
+        font-weight: 600;
+      }
+
+      .values-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 2.5rem;
+        margin-top: 3rem;
+      }
+
+      .value-card {
+        background: white;
+        padding: 2.5rem 2rem;
+        border-radius: 8px;
+        text-align: center;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+        transition: transform 0.3s, box-shadow 0.3s;
+      }
+
+      .value-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 25px rgba(74, 144, 226, 0.15);
+      }
+
+      .value-icon {
+        font-size: 3rem;
+        margin-bottom: 1.5rem;
+        color: #4a90e2;
+      }
+
+      .value-card h3 {
+        font-size: 1.4rem;
+        color: #1e3a5f;
+        margin-bottom: 1rem;
+      }
+
+      .value-card p {
+        color: #666;
+        line-height: 1.6;
+      }
+
+      /* Why Choose Us Section */
+      .why-choose {
+        padding: 5rem 5%;
+        background: white;
+      }
+
+      .features-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 3rem;
+        margin-top: 3rem;
+      }
+
+      .feature-item {
+        display: flex;
+        gap: 1.5rem;
+      }
+
+      .feature-icon {
+        flex-shrink: 0;
+        width: 60px;
+        height: 60px;
+        background: #e8f4ff;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.8rem;
+        color: #4a90e2;
+      }
+
+      .feature-content h3 {
+        font-size: 1.3rem;
+        color: #1e3a5f;
+        margin-bottom: 0.5rem;
+      }
+
+      .feature-content p {
+        color: #666;
+        line-height: 1.6;
+      }
+
+      /* Team Section */
+      .team {
+        padding: 5rem 5%;
+        background: #1e3a5f;
+        color: white;
+      }
+
+      .team .section-title {
+        color: white;
+      }
+
+      .team .section-subtitle {
+        color: #a8d0ff;
+      }
+
+      .team-intro {
+        max-width: 800px;
+        margin: 0 auto 3rem;
+        text-align: center;
+        font-size: 1.1rem;
+        line-height: 1.8;
+        opacity: 0.95;
+      }
+
+      .team-stats {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 2rem;
+        margin-top: 3rem;
+      }
+
+      .stat-item {
+        text-align: center;
+        padding: 2rem 1rem;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 8px;
+      }
+
+      .stat-number {
+        font-size: 3rem;
+        font-weight: 700;
+        color: #4a90e2;
+        margin-bottom: 0.5rem;
+      }
+
+      .stat-label {
+        font-size: 1.1rem;
+        opacity: 0.9;
+      }
+
+      /* Compliance Section */
+      .compliance {
+        padding: 5rem 5%;
+        background: #f8fbff;
+      }
+
+      .compliance-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 2rem;
+        margin-top: 3rem;
+      }
+
+      .compliance-card {
+        background: white;
+        padding: 2rem;
+        border-radius: 8px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+        border-left: 4px solid #4a90e2;
+      }
+
+      .compliance-card h3 {
+        color: #1e3a5f;
+        margin-bottom: 1rem;
+        font-size: 1.3rem;
+      }
+
+      .compliance-card p {
+        color: #666;
+        line-height: 1.6;
+        margin-bottom: 1rem;
+      }
+
+      .compliance-badge {
+        display: inline-block;
+        background: #e8f4ff;
+        color: #4a90e2;
+        padding: 0.5rem 1rem;
+        border-radius: 20px;
+        font-size: 0.9rem;
+        font-weight: 600;
+      }
+
+      /* CTA Section */
+      .cta-section {
+        padding: 5rem 5%;
+        background: linear-gradient(
+            135deg,
+            rgba(30, 58, 95, 0.95),
+            rgba(74, 144, 226, 0.9)
+          ),
+          url("https://images.unsplash.com/photo-1497366811353-6870744d04b2?w=1600")
+            center/cover;
+        color: white;
+        text-align: center;
+      }
+
+      .cta-content {
+        max-width: 800px;
+        margin: 0 auto;
+      }
+
+      .cta-content h2 {
+        font-size: 2.5rem;
+        margin-bottom: 1.5rem;
+      }
+
+      .cta-content p {
+        font-size: 1.2rem;
+        margin-bottom: 2rem;
+        opacity: 0.95;
+      }
+
+      .cta-button {
+        background: white;
+        color: #1e3a5f;
+        padding: 1rem 3rem;
+        font-size: 1.1rem;
+        font-weight: 600;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        text-decoration: none;
+        display: inline-block;
+        transition: all 0.3s;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+      }
+
+      .cta-button:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+      }
+
+      /* Responsive Design */
+      @media (max-width: 968px) {
+        .story-grid {
+          grid-template-columns: 1fr;
+          gap: 2rem;
+        }
+
+        .features-grid {
+          grid-template-columns: 1fr;
+          gap: 2rem;
+        }
+
+        .page-header h1 {
+          font-size: 2rem;
+        }
+
+        .section-title {
+          font-size: 2rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navigation -->
+    <nav>
+      <div class="nav-container">
+        <img src="/images/logo.png" height="40px" width="80px" alt="" />
+
+        <button class="menu-toggle" aria-label="Toggle menu">
+          <span class="hamburger"></span>
+          <span class="hamburger"></span>
+          <span class="hamburger"></span>
+        </button>
+
+        <ul class="nav-links">
+          <li><a href="/">Home</a></li>
+          <li><a href="/about">About</a></li>
+          <li><a href="/services/">Services</a></li>
+          <li><a href="/portfolio/">Portfolio</a></li>
+          <li><a href="/contact/">Contact</a></li>
+          <div class="flag-container">
+            <img
+              src="/images/Flag_of_South_Africa.svg.webp"
+              alt="South African Flag"
+              class="sa-flag"
+            />
+          </div>
+        </ul>
+      </div>
+    </nav>
+
+    <div class="menu-overlay"></div>
+
+    <!-- Page Header -->
+    <section class="page-header">
+      <h1>About Inkatha Development Cabinetry</h1>
+      <p>
+        Building South Africa's future, one quality piece at a time
+      </p>
+    </section>
+
+    <!-- Our Story Section -->
+    <section class="our-story">
+      <div class="section-content">
+        <div class="story-grid">
+          <div class="story-text">
+            <h2>Our Story</h2>
+            <p>
+              Inkatha Development Cabinetry was founded with a clear vision: to
+              contribute to South Africa's growth by providing exceptional
+              furniture and cabinetry solutions to the institutions that shape
+              our nation's future.
+            </p>
+            <p>
+              From our base in Durban, KwaZulu-Natal, we have grown into a
+              trusted partner for schools, healthcare facilities, and government
+              institutions across South Africa. Our name, "Inkatha," reflects
+              our commitment to development and unity, values that guide every
+              project we undertake.
+            </p>
+            <p>
+              What sets us apart is our unwavering dedication to quality
+              craftsmanship combined with deep understanding of South African
+              institutional needs. We know that the furniture we create serves a
+              greater purpose: enabling education, supporting healthcare, and
+              facilitating public service.
+            </p>
+          </div>
+          <div class="story-image"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Values Section -->
+    <section class="values">
+      <div class="section-content">
+        <h2 class="section-title">Our Core Values</h2>
+        <p class="section-subtitle">
+          The Principles That Guide Our Work
+        </p>
+        <div class="values-grid">
+          <div class="value-card">
+            <div class="value-icon">💎</div>
+            <h3>Quality Excellence</h3>
+            <p>
+              We never compromise on quality. Every piece we craft is built to
+              last, using premium materials and expert craftsmanship that stands
+              the test of time.
+            </p>
+          </div>
+          <div class="value-card">
+            <div class="value-icon">🤝</div>
+            <h3>Integrity & Trust</h3>
+            <p>
+              Transparency and honesty form the foundation of our relationships.
+              We deliver on our promises and stand behind our work with complete
+              accountability.
+            </p>
+          </div>
+          <div class="value-card">
+            <div class="value-icon">🌍</div>
+            <h3>Nation Building</h3>
+            <p>
+              Our work contributes to South Africa's development. We're proud to
+              support education and healthcare sectors that uplift our
+              communities.
+            </p>
+          </div>
+          <div class="value-card">
+            <div class="value-icon">⚡</div>
+            <h3>Innovation & Efficiency</h3>
+            <p>
+              We continuously improve our processes and designs, ensuring we
+              deliver cutting-edge solutions that meet evolving institutional
+              needs.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Why Choose Us Section -->
+    <section class="why-choose">
+      <div class="section-content">
+        <h2 class="section-title">Why Choose Inkatha Development</h2>
+        <p class="section-subtitle">
+          Your Partner in Quality Institutional Furniture
+        </p>
+        <div class="features-grid">
+          <div class="feature-item">
+            <div class="feature-icon">🏆</div>
+            <div class="feature-content">
+              <h3>Proven Track Record</h3>
+              <p>
+                Extensive experience delivering successful projects for schools,
+                hospitals, and government institutions across South Africa. Our
+                portfolio speaks for itself.
+              </p>
+            </div>
+          </div>
+          <div class="feature-item">
+            <div class="feature-icon">📋</div>
+            <div class="feature-content">
+              <h3>Fully Compliant</h3>
+              <p>
+                CSD registered, BEE certified, and tax compliant. We meet all
+                tender requirements and maintain the highest standards of legal
+                and regulatory compliance.
+              </p>
+            </div>
+          </div>
+          <div class="feature-item">
+            <div class="feature-icon">🔧</div>
+            <div class="feature-content">
+              <h3>End-to-End Service</h3>
+              <p>
+                From initial consultation and design through manufacturing,
+                delivery, and installation, we handle every aspect of your
+                project with professionalism and care.
+              </p>
+            </div>
+          </div>
+          <div class="feature-item">
+            <div class="feature-icon">⏱️</div>
+            <div class="feature-content">
+              <h3>Reliable Delivery</h3>
+              <p>
+                We understand the importance of timelines, especially for
+                institutional projects. We deliver on schedule without
+                compromising quality.
+              </p>
+            </div>
+          </div>
+          <div class="feature-item">
+            <div class="feature-icon">💰</div>
+            <div class="feature-content">
+              <h3>Competitive Pricing</h3>
+              <p>
+                Quality doesn't have to break the budget. We offer fair,
+                transparent pricing that delivers exceptional value for your
+                investment.
+              </p>
+            </div>
+          </div>
+          <div class="feature-item">
+            <div class="feature-icon">🛠️</div>
+            <div class="feature-content">
+              <h3>Custom Solutions</h3>
+              <p>
+                Every institution has unique needs. We specialize in creating
+                bespoke solutions tailored to your specific requirements and
+                space constraints.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="team">
+      <div class="section-content">
+        <h2 class="section-title">Our Team</h2>
+        <p class="section-subtitle">
+          Skilled Craftspeople Dedicated to Excellence
+        </p>
+        <div class="team-intro">
+          Our team brings together experienced carpenters, designers, and
+          project managers who share a passion for quality craftsmanship. With
+          decades of combined experience in institutional furniture
+          manufacturing, we understand the unique requirements of schools,
+          healthcare facilities, and government projects. Every team member is
+          committed to upholding our standards of excellence and contributing to
+          South Africa's development.
+        </div>
+        <div class="team-stats">
+          <div class="stat-item">
+            <div class="stat-number">100+</div>
+            <div class="stat-label">Projects Completed</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number">50+</div>
+            <div class="stat-label">Satisfied Clients</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number">15+</div>
+            <div class="stat-label">Years Combined Experience</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number">100%</div>
+            <div class="stat-label">Compliance Rate</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Compliance Section -->
+    <section class="compliance">
+      <div class="section-content">
+        <h2 class="section-title">Compliance & Certifications</h2>
+        <p class="section-subtitle">
+          Meeting Every Standard, Exceeding Every Expectation
+        </p>
+        <div class="compliance-grid">
+          <div class="compliance-card">
+            <h3>CSD Registration</h3>
+            <p>
+              Fully registered on the Central Supplier Database, enabling us to
+              participate in government tenders and supply agreements across all
+              levels of government in South Africa.
+            </p>
+            <span class="compliance-badge">Verified & Active</span>
+          </div>
+          <div class="compliance-card">
+            <h3>BEE Certification</h3>
+            <p>
+              Broad-Based Black Economic Empowerment certified, demonstrating
+              our commitment to transformation and inclusive economic growth in
+              South Africa.
+            </p>
+            <span class="compliance-badge">Level Certified</span>
+          </div>
+          <div class="compliance-card">
+            <h3>Tax Compliance</h3>
+            <p>
+              Current and valid tax compliance certificate from the South
+              African Revenue Service (SARS), ensuring full compliance with all
+              tax obligations.
+            </p>
+            <span class="compliance-badge">Valid Certificate</span>
+          </div>
+          <div class="compliance-card">
+            <h3>Safety Standards</h3>
+            <p>
+              Full adherence to South African National Standards (SANS) and
+              Occupational Health and Safety (OHS) regulations, ensuring safe
+              products and work practices.
+            </p>
+            <span class="compliance-badge">SANS & OHS Compliant</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+      <div class="cta-content">
+        <h2>Ready to Work Together?</h2>
+        <p>
+          Let's discuss how we can support your institution with quality
+          furniture and cabinetry solutions. Contact us today for a
+          consultation.
+        </p>
+        <a href="/contact/" class="cta-button">Get in Touch</a>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+      <div class="footer-content">
+        <div class="footer-grid">
+          <div class="footer-column">
+            <div class="footer-logo">
+              <img
+                src="/images/logo.png"
+                alt="Inkatha Development"
+                height="70"
+              />
+            </div>
+            <p>
+              Delivering exceptional quality furniture and cabinetry solutions
+              for South Africa's institutional needs since our inception.
+            </p>
+          </div>
+
+          <div class="footer-column">
+            <h4>Quick Links</h4>
+            <ul class="footer-links">
+              <li><a href="/about">About Us</a></li>
+              <li><a href="/services">Our Services</a></li>
+              <li><a href="/portfolio">Portfolio</a></li>
+              <li><a href="/contact">Contact</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-column">
+            <h4>Our Services</h4>
+            <ul class="footer-links">
+              <li><a href="/services">School Furniture</a></li>
+              <li><a href="/services">Healthcare Cabinetry</a></li>
+              <li><a href="/services">Government Projects</a></li>
+              <li><a href="/services">Custom Carpentry</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-column">
+            <h4>Get In Touch</h4>
+            <ul class="footer-contact">
+              <li>
+                <span class="contact-icon">📍</span>
+                <span>Durban, KwaZulu-Natal<br />South Africa</span>
+              </li>
+              <li>
+                <span class="contact-icon">📞</span>
+                <span>+27 XX XXX XXXX</span>
+              </li>
+              <li>
+                <span class="contact-icon">✉️</span>
+                <span>info@inkathadevelopment.co.za</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <div class="footer-bottom-content">
+            <p>
+              &copy; 2025 Inkatha Development Cabinetry. All rights reserved.
+            </p>
+            <div class="footer-certifications">
+              <span>CSD Registered</span>
+              <span class="separator">•</span>
+              <span>BEE Certified</span>
+              <span class="separator">•</span>
+              <span>Tax Compliant</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      const menuToggle = document.querySelector(".menu-toggle");
+      const navLinks = document.querySelector(".nav-links");
+      const menuOverlay = document.querySelector(".menu-overlay");
+      const navLinksItems = document.querySelectorAll(".nav-links a");
+
+      menuToggle.addEventListener("click", () => {
+        menuToggle.classList.toggle("active");
+        navLinks.classList.toggle("active");
+        menuOverlay.classList.toggle("active");
+        document.body.style.overflow = navLinks.classList.contains("active")
+          ? "hidden"
+          : "";
+      });
+
+      menuOverlay.addEventListener("click", () => {
+        menuToggle.classList.remove("active");
+        navLinks.classList.remove("active");
+        menuOverlay.classList.remove("active");
+        document.body.style.overflow = "";
+      });
+
+      navLinksItems.forEach((link) => {
+        link.addEventListener("click", () => {
+          menuToggle.classList.remove("active");
+          navLinks.classList.remove("active");
+          menuOverlay.classList.remove("active");
+          document.body.style.overflow = "";
+        });
+      });
+    </script>
+  </body>
+</html>

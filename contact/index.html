@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="stylesheet" href="/styles/navbar.css" />
+    <link rel="stylesheet" href="/styles/footer.css" />
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact Us - Inkatha Development Cabinetry</title>
@@ -705,5 +707,36 @@
             }, 5000);
         });
     </script>
+        <script>
+            const menuToggle = document.querySelector(".menu-toggle");
+            const navLinks = document.querySelector(".nav-links");
+            const menuOverlay = document.querySelector(".menu-overlay");
+            const navLinksItems = document.querySelectorAll(".nav-links a");
+      
+            menuToggle.addEventListener("click", () => {
+              menuToggle.classList.toggle("active");
+              navLinks.classList.toggle("active");
+              menuOverlay.classList.toggle("active");
+              document.body.style.overflow = navLinks.classList.contains("active")
+                ? "hidden"
+                : "";
+            });
+      
+            menuOverlay.addEventListener("click", () => {
+              menuToggle.classList.remove("active");
+              navLinks.classList.remove("active");
+              menuOverlay.classList.remove("active");
+              document.body.style.overflow = "";
+            });
+      
+            navLinksItems.forEach((link) => {
+              link.addEventListener("click", () => {
+                menuToggle.classList.remove("active");
+                navLinks.classList.remove("active");
+                menuOverlay.classList.remove("active");
+                document.body.style.overflow = "";
+              });
+            });
+          </script>
 </body>
 </html>

@@ -384,18 +384,6 @@
         line-height: 1.6;
       }
 
-      /* Footer */
-      footer {
-        background: #1e3a5f;
-        color: white;
-        padding: 2rem 5%;
-        text-align: center;
-      }
-
-      footer p {
-        opacity: 0.9;
-      }
-
       /* Responsive Design */
       @media (max-width: 768px) {
         .hero h1 {
@@ -419,20 +407,36 @@
   </head>
   <body>
     <!-- Navigation -->
+    <!-- Navigation -->
     <nav>
       <div class="nav-container">
-        <img src="/images/logo.png" height="40px" width="80px" alt="">
+        <img src="/images/logo.png" height="40px" width="80px" alt="" />
+
+        <!-- Hamburger Menu Button -->
+        <button class="menu-toggle" aria-label="Toggle menu">
+          <span class="hamburger"></span>
+          <span class="hamburger"></span>
+          <span class="hamburger"></span>
+        </button>
+
         <ul class="nav-links">
-          <li><a href="#about">About</a></li>
-          <li><a href="#services">Services</a></li>
-          <li><a href="#portfolio">Portfolio</a></li>
-          <li><a href="#contact">Contact</a></li>
+          <li><a href="/about">About</a></li>
+          <li><a href="/services/">Services</a></li>
+          <li><a href="/portfolio/">Portfolio</a></li>
+          <li><a href="/contact/">Contact</a></li>
           <div class="flag-container">
-            <img src="/images/Flag_of_South_Africa.svg.webp" alt="South African Flag" class="sa-flag" />
+            <img
+              src="/images/Flag_of_South_Africa.svg.webp"
+              alt="South African Flag"
+              class="sa-flag"
+            />
           </div>
         </ul>
       </div>
     </nav>
+
+    <!-- Menu Overlay -->
+    <div class="menu-overlay"></div>
 
     <!-- Hero Section -->
     <section class="hero">
@@ -706,78 +710,118 @@
       </div>
     </section>
 
-<!-- Footer -->
-<footer class="main-footer">
-  <div class="footer-content">
-    <div class="footer-grid">
-      <!-- Company Info Column -->
-      <div class="footer-column">
-        <h3>Inkatha Development Cabinetry</h3>
-        <p>
-          Delivering exceptional quality furniture and cabinetry solutions for
-          South Africa's institutional needs since our inception.
-        </p>
-        <div class="footer-logo">
-          <img src="/images/logo.png" alt="Inkatha Development" height="50" />
+    <!-- Footer -->
+    <footer class="main-footer">
+      <div class="footer-content">
+        <div class="footer-grid">
+          <!-- Company Info Column -->
+          <div class="footer-column">
+            <div class="footer-logo">
+              <img
+                src="/images/footer_logo.png"
+                alt="Inkatha Development"
+                height="70"
+              />
+            </div>
+            <p>
+              Delivering exceptional quality furniture and cabinetry solutions
+              for South Africa's institutional needs since our inception.
+            </p>
+          </div>
+
+          <!-- Quick Links Column -->
+          <div class="footer-column">
+            <h4>Quick Links</h4>
+            <ul class="footer-links">
+              <li><a href="/about">About Us</a></li>
+              <li><a href="/services">Our Services</a></li>
+              <li><a href="/portfolio">Portfolio</a></li>
+              <li><a href="/contact">Contact</a></li>
+            </ul>
+          </div>
+
+          <!-- Services Column -->
+          <div class="footer-column">
+            <h4>Our Services</h4>
+            <ul class="footer-links">
+              <li><a href="/services">School Furniture</a></li>
+              <li><a href="/services">Healthcare Cabinetry</a></li>
+              <li><a href="/services">Government Projects</a></li>
+              <li><a href="/services">Custom Carpentry</a></li>
+            </ul>
+          </div>
+
+          <!-- Contact Column -->
+          <div class="footer-column">
+            <h4>Get In Touch</h4>
+            <ul class="footer-contact">
+              <li>
+                <span class="contact-icon">📍</span>
+                <span>Durban, KwaZulu-Natal<br />South Africa</span>
+              </li>
+              <li>
+                <span class="contact-icon">📞</span>
+                <span>+27 XX XXX XXXX</span>
+              </li>
+              <li>
+                <span class="contact-icon">✉️</span>
+                <span>info@inkathadevelopment.co.za</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Bottom Bar -->
+        <div class="footer-bottom">
+          <div class="footer-bottom-content">
+            <p>
+              &copy; 2025 Inkatha Development Cabinetry. All rights reserved.
+            </p>
+            <div class="footer-certifications">
+              <span>CSD Registered</span>
+              <span class="separator">•</span>
+              <span>BEE Certified</span>
+              <span class="separator">•</span>
+              <span>Tax Compliant</span>
+            </div>
+          </div>
         </div>
       </div>
+    </footer>
+    <script>
+      // Mobile Menu Toggle
+      const menuToggle = document.querySelector(".menu-toggle");
+      const navLinks = document.querySelector(".nav-links");
+      const menuOverlay = document.querySelector(".menu-overlay");
+      const navLinksItems = document.querySelectorAll(".nav-links a");
 
-      <!-- Quick Links Column -->
-      <div class="footer-column">
-        <h4>Quick Links</h4>
-        <ul class="footer-links">
-          <li><a href="#about">About Us</a></li>
-          <li><a href="#services">Our Services</a></li>
-          <li><a href="#portfolio">Portfolio</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
-      </div>
+      // Toggle menu
+      menuToggle.addEventListener("click", () => {
+        menuToggle.classList.toggle("active");
+        navLinks.classList.toggle("active");
+        menuOverlay.classList.toggle("active");
+        document.body.style.overflow = navLinks.classList.contains("active")
+          ? "hidden"
+          : "";
+      });
 
-      <!-- Services Column -->
-      <div class="footer-column">
-        <h4>Our Services</h4>
-        <ul class="footer-links">
-          <li><a href="#services">School Furniture</a></li>
-          <li><a href="#services">Healthcare Cabinetry</a></li>
-          <li><a href="#services">Government Projects</a></li>
-          <li><a href="#services">Custom Carpentry</a></li>
-        </ul>
-      </div>
+      // Close menu when clicking overlay
+      menuOverlay.addEventListener("click", () => {
+        menuToggle.classList.remove("active");
+        navLinks.classList.remove("active");
+        menuOverlay.classList.remove("active");
+        document.body.style.overflow = "";
+      });
 
-      <!-- Contact Column -->
-      <div class="footer-column">
-        <h4>Get In Touch</h4>
-        <ul class="footer-contact">
-          <li>
-            <span class="contact-icon">📍</span>
-            <span>Durban, KwaZulu-Natal<br />South Africa</span>
-          </li>
-          <li>
-            <span class="contact-icon">📞</span>
-            <span>+27 XX XXX XXXX</span>
-          </li>
-          <li>
-            <span class="contact-icon">✉️</span>
-            <span>info@inkathadevelopment.co.za</span>
-          </li>
-        </ul>
-      </div>
-    </div>
-
-    <!-- Bottom Bar -->
-    <div class="footer-bottom">
-      <div class="footer-bottom-content">
-        <p>&copy; 2025 Inkatha Development Cabinetry. All rights reserved.</p>
-        <div class="footer-certifications">
-          <span>CSD Registered</span>
-          <span class="separator">•</span>
-          <span>BEE Certified</span>
-          <span class="separator">•</span>
-          <span>Tax Compliant</span>
-        </div>
-      </div>
-    </div>
-  </div>
-</footer>
+      // Close menu when clicking nav links
+      navLinksItems.forEach((link) => {
+        link.addEventListener("click", () => {
+          menuToggle.classList.remove("active");
+          navLinks.classList.remove("active");
+          menuOverlay.classList.remove("active");
+          document.body.style.overflow = "";
+        });
+      });
+    </script>
   </body>
 </html>
