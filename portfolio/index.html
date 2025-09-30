@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - Inkatha Development Cabinetry</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            color: #2c3e50;
+            line-height: 1.6;
+            background: #ffffff;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        /* Navigation */
+        nav {
+            background: white;
+            padding: 1.2rem 5%;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #1e3a5f;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: #2c3e50;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #4a90e2;
+        }
+
+        /* Header Section */
+        .page-header {
+            background: linear-gradient(135deg, #1e3a5f 0%, #4a90e2 100%);
+            color: white;
+            padding: 4rem 5% 3rem;
+            text-align: center;
+        }
+
+        .page-header h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .page-header p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto;
+            opacity: 0.95;
+            line-height: 1.7;
+        }
+
+        /* Filter Section */
+        .filter-section {
+            background: #f8fbff;
+            padding: 2.5rem 5%;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .filter-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .filter-label {
+            font-weight: 600;
+            color: #1e3a5f;
+            font-size: 1.1rem;
+        }
+
+        .filter-btn {
+            padding: 0.7rem 1.8rem;
+            background: white;
+            color: #2c3e50;
+            border: 2px solid #d0d0d0;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: all 0.3s;
+            font-family: 'Open Sans', sans-serif;
+        }
+
+        .filter-btn:hover {
+            border-color: #4a90e2;
+            color: #4a90e2;
+        }
+
+        .filter-btn.active {
+            background: #4a90e2;
+            color: white;
+            border-color: #4a90e2;
+        }
+
+        /* Featured Project Section */
+        .featured-project {
+            padding: 5rem 5%;
+            background: white;
+        }
+
+        .featured-container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .featured-badge {
+            display: inline-block;
+            background: #4a90e2;
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .featured-content {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .featured-image {
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+            border-radius: 10px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+        }
+
+        .featured-details h2 {
+            font-size: 2.2rem;
+            color: #1e3a5f;
+            margin-bottom: 1rem;
+        }
+
+        .featured-meta {
+            display: flex;
+            gap: 2rem;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: #666;
+            font-size: 0.95rem;
+        }
+
+        .meta-icon {
+            color: #4a90e2;
+            font-size: 1.2rem;
+        }
+
+        .featured-description {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #555;
+            margin-bottom: 1.5rem;
+        }
+
+        .testimonial-box {
+            background: #f8fbff;
+            padding: 1.8rem;
+            border-left: 4px solid #4a90e2;
+            border-radius: 5px;
+            margin-top: 1.5rem;
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            color: #2c3e50;
+            line-height: 1.7;
+            margin-bottom: 1rem;
+        }
+
+        .testimonial-author {
+            font-weight: 600;
+            color: #1e3a5f;
+            font-style: normal;
+        }
+
+        /* Projects Grid Section */
+        .projects-section {
+            padding: 5rem 5%;
+            background: #f8fbff;
+        }
+
+        .projects-container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            color: #1e3a5f;
+            margin-bottom: 3rem;
+            text-align: center;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .project-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            transition: transform 0.3s, box-shadow 0.3s;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(74, 144, 226, 0.2);
+        }
+
+        .project-image {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+
+        .project-content {
+            padding: 1.8rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .project-category {
+            display: inline-block;
+            background: #e8f4ff;
+            color: #4a90e2;
+            padding: 0.3rem 0.9rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            width: fit-content;
+        }
+
+        .project-title {
+            font-size: 1.4rem;
+            color: #1e3a5f;
+            margin-bottom: 0.8rem;
+            font-weight: 600;
+        }
+
+        .project-description {
+            color: #666;
+            line-height: 1.6;
+            font-size: 0.95rem;
+            flex-grow: 1;
+        }
+
+        .project-specs {
+            display: flex;
+            gap: 1.5rem;
+            margin-top: 1.2rem;
+            padding-top: 1.2rem;
+            border-top: 1px solid #e0e0e0;
+            font-size: 0.85rem;
+            color: #888;
+        }
+
+        .spec-item {
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: #1e3a5f;
+            color: white;
+            padding: 5rem 5%;
+            text-align: center;
+        }
+
+        .cta-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .cta-content h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .cta-content p {
+            font-size: 1.2rem;
+            margin-bottom: 2.5rem;
+            opacity: 0.95;
+        }
+
+        .cta-button {
+            background: #4a90e2;
+            color: white;
+            padding: 1rem 3rem;
+            font-size: 1.1rem;
+            font-weight: 600;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(74, 144, 226, 0.4);
+        }
+
+        .cta-button:hover {
+            background: #357abd;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(74, 144, 226, 0.6);
+        }
+
+        /* Footer */
+        footer {
+            background: #1e3a5f;
+            color: white;
+            padding: 2rem 5%;
+            text-align: center;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+
+        footer p {
+            opacity: 0.9;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 968px) {
+            .featured-content {
+                grid-template-columns: 1fr;
+            }
+
+            .featured-image {
+                height: 350px;
+            }
+
+            .page-header h1 {
+                font-size: 2.2rem;
+            }
+
+            .projects-grid {
+                grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+                gap: 2rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .filter-container {
+                flex-direction: column;
+                gap: 0.8rem;
+            }
+
+            .cta-content h2 {
+                font-size: 2rem;
+            }
+        }
+
+        /* Hidden class for filtering */
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <div class="logo">Inkatha Development Cabinetry</div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="#portfolio">Portfolio</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <h1>Our Work</h1>
+        <p>A showcase of projects we've completed to support schools, hospitals, and public institutions across South Africa. Each project represents our commitment to quality craftsmanship and nation-building.</p>
+    </section>
+
+    <!-- Filter Section -->
+    <section class="filter-section">
+        <div class="filter-container">
+            <span class="filter-label">Filter by:</span>
+            <button class="filter-btn active" data-category="all">All Projects</button>
+            <button class="filter-btn" data-category="education">Education</button>
+            <button class="filter-btn" data-category="healthcare">Healthcare</button>
+            <button class="filter-btn" data-category="government">Government Projects</button>
+            <button class="filter-btn" data-category="custom">Custom Carpentry</button>
+        </div>
+    </section>
+
+    <!-- Featured Project -->
+    <section class="featured-project">
+        <div class="featured-container">
+            <span class="featured-badge">⭐ Featured Project</span>
+            <div class="featured-content">
+                <img src="https://images.unsplash.com/photo-1509062522246-3755977927d7?w=800" alt="Classroom furniture donation" class="featured-image">
+                <div class="featured-details">
+                    <h2>Uthando Primary School Complete Furniture Donation</h2>
+                    <div class="featured-meta">
+                        <div class="meta-item">
+                            <span class="meta-icon">📍</span>
+                            <span>Umlazi, KwaZulu-Natal</span>
+                        </div>
+                        <div class="meta-item">
+                            <span class="meta-icon">📅</span>
+                            <span>Completed: August 2024</span>
+                        </div>
+                        <div class="meta-item">
+                            <span class="meta-icon">🎓</span>
+                            <span>Education</span>
+                        </div>
+                    </div>
+                    <p class="featured-description">
+                        In partnership with the KZN Department of Education, we furnished 12 classrooms at Uthando Primary School with brand new desks, chairs, teacher tables, and storage units. This project impacted over 400 learners, providing them with proper learning environments. We used durable materials designed to withstand daily classroom use while maintaining safety standards for young learners.
+                    </p>
+                    <p class="featured-description">
+                        The project included custom-designed storage solutions for teaching materials, allowing educators to organize resources effectively. All furniture was manufactured to SANS specifications and delivered on schedule, ensuring minimal disruption to the school term.
+                    </p>
+                    <div class="testimonial-box">
+                        <p class="testimonial-text">"The quality of workmanship exceeded our expectations. The desks are sturdy, beautifully finished, and our learners are so proud of their new classroom environment. Inkatha Development didn't just deliver furniture, they delivered hope and dignity to our school community."</p>
+                        <p class="testimonial-author">— Mrs. Thandi Nkosi, Principal, Uthando Primary School</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Grid -->
+    <section class="projects-section" id="portfolio">
+        <div class="projects-container">
+            <h2 class="section-title">All Projects</h2>
+            <div class="projects-grid">
+                
+                <!-- Project 1 -->
+                <div class="project-card" data-category="education">
+                    <img src="https://images.unsplash.com/photo-1509062522246-3755977927d7?w=600" alt="School desks" class="project-image">
+                    <div class="project-content">
+                        <span class="project-category">Education</span>
+                        <h3 class="project-title">Mpumalanga High School Classroom Furniture</h3>
+                        <p class="project-description">Complete installation of 240 student desks and chairs across 8 classrooms. Included teacher desks and whiteboards. Materials: laminated hardwood with metal frames for durability.</p>
+                        <div class="project-specs">
+                            <div class="spec-item">
+                                <span>📦</span>
+                                <span>240 units</span>
+                            </div>
+                            <div class="spec-item">
+                                <span>📅</span>
+                                <span>June 2024</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="project-card" data-category="healthcare">
+                    <img src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=600" alt="Hospital cabinets" class="project-image">
+                    <div class="project-content">
+                        <span class="project-category">Healthcare</span>
+                        <h3 class="project-title">King Edward VIII Hospital Medical Storage Units</h3>
+                        <p class="project-description">Custom medical cabinetry for pharmacy and storage facilities. Hygienic, easy-to-clean surfaces meeting healthcare standards. Included lockable medication storage and sterile supply units.</p>
+                        <div class="project-specs">
+                            <div class="spec-item">
+                                <span>🏥</span>
+                                <span>35 cabinets</span>
+                            </div>
+                            <div class="spec-item">
+                                <span>📅</span>
+                                <span>May 2024</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="project-card" data-category="government">
+                    <img src="https://images.unsplash.com/photo-1497366811353-6870744d04b2?w=600" alt="Office furniture" class="project-image">
+                    <div class="project-content">
+                        <span class="project-category">Government Projects</span>
+                        <h3 class="project-title">eThekwini Municipality Office Fit-Out</h3>
+                        <p class="project-description">Complete office furniture solution for newly renovated municipal building. Supplied workstations, filing cabinets, boardroom tables, and reception counters for 50 staff members.</p>
+                        <div class="project-specs">
+                            <div class="spec-item">
+                                <span>🏛️</span>
+                                <span>50 workstations</span>
+                            </div>
+                            <div class="spec-item">
+                                <span>📅</span>
+                                <span>March 2024</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 4 -->
+                <div class="project-card" data-category="education">
+                    <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=600" alt="Library shelving" class="project-image">
+                    <div class="project-content">
+                        <span class="project-category">Education</span>
+                        <h3 class="project-title">Inanda Community Library Shelving System</h3>
+                        <p class="project-description">Custom-designed library shelving units and study furniture. Adjustable shelving to accommodate various book sizes. Included reading tables, chairs, and a children's section with colorful low-height units.</p>
+                        <div class="project-specs">
+                            <div class="spec-item">
+                                <span>📚</span>
+                                <span>28 shelf units</span>
+                            </div>
+                            <div class="spec-item">
+                                <span>📅</span>
+                                <span>April 2024</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 5 -->
+                <div class="project-card" data-category="healthcare">
+                    <img src="https://images.unsplash.com/photo-1516549655169-df83a0774514?w=600" alt="Clinic furniture" class="project-image">
+                    <div class="project-content">
+                        <span class="project-category">Healthcare</span>
+                        <h3 class="project-title">Phoenix Community Clinic Reception & Waiting Area</h3>
+                        <p class="project-description">Reception desk, filing systems, and waiting area benches for busy community clinic. Durable, easy-maintenance materials suitable for high-traffic healthcare environment.</p>
+                        <div class="project-specs">
+                            <div class="spec-item">
+                                <span>💺</span>
+                                <span>60-seat capacity</span>
+                            </div>
+                            <div class="spec-item">
+                                <span>📅</span>
+                                <span>February 2024</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 6 -->
+                <div class="project-card" data-category="custom">
+                    <img src="https://images.unsplash.com/photo-1581291518633-83b4ebd1d83e?w=600" alt="Custom storage" class="project-image">
+                    <div class="project-content">
+                        <span class="project-category">Custom Carpentry</span>
+                        <h3 class="project-title">Department of Education Regional Office Storage</h3>
+                        <p class="project-description">Bespoke heavy-duty storage cupboards for archival documents and supplies. Reinforced construction to support heavy loads. Lockable units with adjustable internal configurations.</p>
+                        <div class="project-specs">
+                            <div class="spec-item">
+                                <span>🔒</span>
+                                <span>20 units</span>
+                            </div>
+                            <div class="spec-item">
+                                <span>📅</span>
+                                <span>January 2024</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 7 -->
+                <div class="project-card" data-category="education">
+                    <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=600" alt="Science lab" class="project-image">
+                    <div class="project-content">
+                        <span class="project-category">Education</span>
+                        <h3 class="project-title">Westville Secondary School Science Lab Benches</h3>
+                        <p class="project-description">Specialized laboratory benches with chemical-resistant surfaces. Integrated storage for lab equipment and safety features. Accommodates 32 students with teacher demonstration area.</p>
+                        <div class="project-specs">
+                            <div class="spec-item">
+                                <span>🔬</span>
+                                <span>16 lab benches</span>
+                            </div>
+                            <div class="spec-item">
+                                <span>📅</span>
+                                <span>December 2023</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 8 -->
+                <div class="project-card" data-category="government">
+                    <img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?w=600" alt="Conference room" class="project-image">
+                    <div class="project-content">
+                        <span class="project-category">Government Projects</span>
+                        <h3 class="project-title">Pietermaritzburg Magistrate's Court Boardroom</h3>
+                        <p class="project-description">Elegant conference table seating 18 people with matching credenzas and display cabinets. Premium hardwood finish with cable management systems for modern court proceedings.</p>
+                        <div class="project-specs">
+                            <div class="spec-item">
+                                <span>⚖️</span>
+                                <span>18-seater table</span>
+                            </div>
+                            <div class="spec-item">
+                                <span>📅</span>
+                                <span>November 2023</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 9 -->
+                <div class="project-card" data-category="custom">
+                    <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=600" alt="Custom office" class="project-image">
+                    <div class="project-content">
+                        <span class="project-category">Custom Carpentry</span>
+                        <h3 class="project-title">Richards Bay Port Authority Executive Offices</h3>
+                        <p class="project-description">Custom executive desks, credenzas, and built-in shelving for 8 executive offices. High-end finishes with integrated technology solutions and personalized storage configurations.</p>
+                        <div class="project-specs">
+                            <div class="spec-item">
+                                <span>💼</span>
+                                <span>8 office suites</span>
+                            </div>
+                            <div class="spec-item">
+                                <span>📅</span>
+                                <span>October 2023</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section" id="contact">
+        <div class="cta-content">
+            <h2>Want Us to Deliver for Your Project?</h2>
+            <p>Whether it's equipping a school, outfitting a hospital, or fulfilling a government tender, we're ready to bring quality craftsmanship to your institution. Let's build something great together.</p>
+            <a href="contact.html" class="cta-button">Get in Touch Today</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Inkatha Development Cabinetry. All rights reserved. | Building South Africa, One Project at a Time.</p>
+    </footer>
+
+    <script>
+        // Filter functionality
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const projectCards = document.querySelectorAll('.project-card');
+
+        filterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Remove active class from all buttons
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+                
+                // Add active class to clicked button
+                button.classList.add('active');
+                
+                // Get selected category
+                const category = button.getAttribute('data-category');
+                
+                // Filter projects
+                projectCards.forEach(card => {
+                    if (category === 'all') {
+                        card.classList.remove('hidden');
+                    } else {
+                        if (card.getAttribute('data-category') === category) {
+                            card.classList.remove('hidden');
+                        } else {
+                            card.classList.add('hidden');
+                        }
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

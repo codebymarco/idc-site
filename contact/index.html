@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Inkatha Development Cabinetry</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            color: #2c3e50;
+            line-height: 1.6;
+            background: #ffffff;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        /* Navigation */
+        nav {
+            background: white;
+            padding: 1.2rem 5%;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #1e3a5f;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: #2c3e50;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #4a90e2;
+        }
+
+        /* Header Section */
+        .page-header {
+            background: linear-gradient(135deg, #1e3a5f 0%, #4a90e2 100%);
+            color: white;
+            padding: 4rem 5% 3rem;
+            text-align: center;
+        }
+
+        .page-header h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .page-header p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto;
+            opacity: 0.95;
+            line-height: 1.7;
+        }
+
+        /* Main Contact Section */
+        .contact-section {
+            padding: 5rem 5%;
+            background: white;
+        }
+
+        .contact-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 4rem;
+        }
+
+        /* Contact Form */
+        .contact-form-wrapper {
+            background: #f8fbff;
+            padding: 3rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        }
+
+        .form-header {
+            margin-bottom: 2rem;
+        }
+
+        .form-header h2 {
+            font-size: 2rem;
+            color: #1e3a5f;
+            margin-bottom: 0.5rem;
+        }
+
+        .form-header p {
+            color: #666;
+            font-size: 1.05rem;
+        }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group label {
+            margin-bottom: 0.6rem;
+            color: #1e3a5f;
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+
+        .required {
+            color: #e74c3c;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            padding: 1rem;
+            border: 2px solid #d0d0d0;
+            border-radius: 6px;
+            font-family: 'Open Sans', sans-serif;
+            font-size: 1rem;
+            transition: all 0.3s;
+            background: white;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: #4a90e2;
+            box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.1);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 150px;
+        }
+
+        .submit-button {
+            background: #4a90e2;
+            color: white;
+            padding: 1.1rem 2.5rem;
+            font-size: 1.1rem;
+            font-weight: 600;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(74, 144, 226, 0.3);
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .submit-button:hover {
+            background: #357abd;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(74, 144, 226, 0.5);
+        }
+
+        .form-note {
+            font-size: 0.9rem;
+            color: #888;
+            margin-top: 1rem;
+            font-style: italic;
+        }
+
+        /* Contact Information */
+        .contact-info-wrapper {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .info-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            transition: transform 0.3s;
+        }
+
+        .info-card:hover {
+            transform: translateY(-3px);
+        }
+
+        .info-card h3 {
+            color: #1e3a5f;
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+
+        .card-icon {
+            font-size: 1.8rem;
+            color: #4a90e2;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .info-item:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+
+        .info-icon {
+            font-size: 1.5rem;
+            color: #4a90e2;
+            margin-right: 1rem;
+            margin-top: 0.2rem;
+            min-width: 30px;
+        }
+
+        .info-text h4 {
+            color: #1e3a5f;
+            margin-bottom: 0.4rem;
+            font-size: 1.05rem;
+        }
+
+        .info-text p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        .info-text a {
+            color: #4a90e2;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .info-text a:hover {
+            color: #357abd;
+            text-decoration: underline;
+        }
+
+        /* Business Hours Card */
+        .hours-list {
+            list-style: none;
+        }
+
+        .hours-list li {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.8rem 0;
+            border-bottom: 1px solid #e8e8e8;
+        }
+
+        .hours-list li:last-child {
+            border-bottom: none;
+        }
+
+        .day {
+            font-weight: 600;
+            color: #2c3e50;
+        }
+
+        .time {
+            color: #666;
+        }
+
+        /* Map Section */
+        .map-section {
+            padding: 0;
+            background: #f8fbff;
+        }
+
+        .map-container {
+            width: 100%;
+            height: 450px;
+            background: linear-gradient(135deg, #e8f4ff 0%, #d0e8ff 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .map-placeholder {
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .map-placeholder h3 {
+            color: #1e3a5f;
+            margin-bottom: 1rem;
+            font-size: 1.8rem;
+        }
+
+        .map-placeholder p {
+            color: #666;
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .map-icon {
+            font-size: 4rem;
+            color: #4a90e2;
+            margin-bottom: 1rem;
+        }
+
+        .directions-btn {
+            display: inline-block;
+            background: #4a90e2;
+            color: white;
+            padding: 0.9rem 2rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .directions-btn:hover {
+            background: #357abd;
+            transform: translateY(-2px);
+        }
+
+        /* Quick Contact Section */
+        .quick-contact {
+            padding: 4rem 5%;
+            background: #1e3a5f;
+            color: white;
+            text-align: center;
+        }
+
+        .quick-contact h2 {
+            font-size: 2.2rem;
+            margin-bottom: 1rem;
+        }
+
+        .quick-contact p {
+            font-size: 1.15rem;
+            margin-bottom: 2.5rem;
+            opacity: 0.95;
+        }
+
+        .contact-methods {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .contact-method {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 2rem 2.5rem;
+            border-radius: 10px;
+            min-width: 250px;
+            transition: all 0.3s;
+        }
+
+        .contact-method:hover {
+            background: rgba(255, 255, 255, 0.15);
+            transform: translateY(-3px);
+        }
+
+        .method-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: #4a90e2;
+        }
+
+        .contact-method h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .contact-method a {
+            color: #a8d0ff;
+            text-decoration: none;
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        .contact-method a:hover {
+            color: white;
+        }
+
+        /* Footer */
+        footer {
+            background: #1e3a5f;
+            color: white;
+            padding: 2rem 5%;
+            text-align: center;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+
+        footer p {
+            opacity: 0.9;
+        }
+
+        /* Success Message */
+        .success-message {
+            display: none;
+            background: #d4edda;
+            color: #155724;
+            padding: 1.2rem;
+            border-radius: 6px;
+            border: 1px solid #c3e6cb;
+            margin-bottom: 1.5rem;
+        }
+
+        .success-message.show {
+            display: block;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 968px) {
+            .contact-container {
+                grid-template-columns: 1fr;
+                gap: 2.5rem;
+            }
+
+            .page-header h1 {
+                font-size: 2.2rem;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-methods {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .contact-form-wrapper {
+                padding: 2rem;
+            }
+
+            .map-container {
+                height: 350px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <div class="logo">Inkatha Development Cabinetry</div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="portfolio.html">Portfolio</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <h1>Get In Touch</h1>
+        <p>Ready to start your project? Whether you're planning a school furniture installation, hospital cabinetry, or government tender submission, we're here to help. Contact us today for a quote.</p>
+    </section>
+
+    <!-- Main Contact Section -->
+    <section class="contact-section" id="contact">
+        <div class="contact-container">
+            <!-- Contact Form -->
+            <div class="contact-form-wrapper">
+                <div class="form-header">
+                    <h2>Send Us a Message</h2>
+                    <p>Fill out the form below and we'll get back to you within 24 hours.</p>
+                </div>
+
+                <div id="successMessage" class="success-message">
+                    ✓ Thank you for your message! We'll be in touch shortly.
+                </div>
+
+                <form class="contact-form" id="contactForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="firstName">First Name <span class="required">*</span></label>
+                            <input type="text" id="firstName" name="firstName" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="lastName">Last Name <span class="required">*</span></label>
+                            <input type="text" id="lastName" name="lastName" required>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="email">Email Address <span class="required">*</span></label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone Number <span class="required">*</span></label>
+                            <input type="tel" id="phone" name="phone" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="organization">Organization/Institution</label>
+                        <input type="text" id="organization" name="organization">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="projectType">Project Type <span class="required">*</span></label>
+                        <select id="projectType" name="projectType" required>
+                            <option value="">Select a project type...</option>
+                            <option value="education">School Furniture</option>
+                            <option value="healthcare">Healthcare Cabinetry</option>
+                            <option value="government">Government Project/Tender</option>
+                            <option value="custom">Custom Carpentry</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">Project Details <span class="required">*</span></label>
+                        <textarea id="message" name="message" required placeholder="Please provide details about your project, including scope, timeline, and any specific requirements..."></textarea>
+                    </div>
+
+                    <button type="submit" class="submit-button">Submit Request</button>
+
+                    <p class="form-note">* Required fields. We respect your privacy and will never share your information.</p>
+                </form>
+            </div>
+
+            <!-- Contact Information -->
+            <div class="contact-info-wrapper">
+                <!-- Contact Details Card -->
+                <div class="info-card">
+                    <h3><span class="card-icon">📞</span> Contact Details</h3>
+                    <div class="info-item">
+                        <div class="info-icon">📍</div>
+                        <div class="info-text">
+                            <h4>Office Location</h4>
+                            <p>Durban, KwaZulu-Natal<br>South Africa</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-icon">📞</div>
+                        <div class="info-text">
+                            <h4>Phone</h4>
+                            <p><a href="tel:+27XXXXXXXXX">+27 XX XXX XXXX</a></p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-icon">✉️</div>
+                        <div class="info-text">
+                            <h4>Email</h4>
+                            <p><a href="mailto:info@inkathadevelopment.co.za">info@inkathadevelopment.co.za</a></p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-icon">💼</div>
+                        <div class="info-text">
+                            <h4>Tender Inquiries</h4>
+                            <p><a href="mailto:tenders@inkathadevelopment.co.za">tenders@inkathadevelopment.co.za</a></p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Business Hours Card -->
+                <div class="info-card">
+                    <h3><span class="card-icon">⏰</span> Business Hours</h3>
+                    <ul class="hours-list">
+                        <li>
+                            <span class="day">Monday</span>
+                            <span class="time">8:00 AM - 5:00 PM</span>
+                        </li>
+                        <li>
+                            <span class="day">Tuesday</span>
+                            <span class="time">8:00 AM - 5:00 PM</span>
+                        </li>
+                        <li>
+                            <span class="day">Wednesday</span>
+                            <span class="time">8:00 AM - 5:00 PM</span>
+                        </li>
+                        <li>
+                            <span class="day">Thursday</span>
+                            <span class="time">8:00 AM - 5:00 PM</span>
+                        </li>
+                        <li>
+                            <span class="day">Friday</span>
+                            <span class="time">8:00 AM - 5:00 PM</span>
+                        </li>
+                        <li>
+                            <span class="day">Saturday</span>
+                            <span class="time">By Appointment</span>
+                        </li>
+                        <li>
+                            <span class="day">Sunday</span>
+                            <span class="time">Closed</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Map Section -->
+    <section class="map-section">
+        <div class="map-container">
+            <div class="map-placeholder">
+                <div class="map-icon">📍</div>
+                <h3>Visit Our Workshop</h3>
+                <p>Durban, KwaZulu-Natal, South Africa</p>
+                <a href="https://www.google.com/maps/place/Durban,+South+Africa" target="_blank" class="directions-btn">Get Directions</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quick Contact Section -->
+    <section class="quick-contact">
+        <h2>Prefer to Contact Us Directly?</h2>
+        <p>Choose your preferred method of communication</p>
+        <div class="contact-methods">
+            <div class="contact-method">
+                <div class="method-icon">📞</div>
+                <h3>Call Us</h3>
+                <a href="tel:+27XXXXXXXXX">+27 XX XXX XXXX</a>
+            </div>
+            <div class="contact-method">
+                <div class="method-icon">✉️</div>
+                <h3>Email Us</h3>
+                <a href="mailto:info@inkathadevelopment.co.za">info@inkathadevelopment.co.za</a>
+            </div>
+            <div class="contact-method">
+                <div class="method-icon">💬</div>
+                <h3>WhatsApp</h3>
+                <a href="https://wa.me/27XXXXXXXXX">Message on WhatsApp</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Inkatha Development Cabinetry. All rights reserved. | Building South Africa, One Project at a Time.</p>
+    </footer>
+
+    <script>
+        // Form submission handler
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Show success message
+            const successMessage = document.getElementById('successMessage');
+            successMessage.classList.add('show');
+            
+            // Scroll to success message
+            successMessage.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            
+            // Reset form
+            this.reset();
+            
+            // Hide success message after 5 seconds
+            setTimeout(() => {
+                successMessage.classList.remove('show');
+            }, 5000);
+        });
+    </script>
+</body>
+</html>

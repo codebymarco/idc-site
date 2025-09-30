@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" href="/styles/navbar.css" />
+    <link rel="stylesheet" href="/styles/footer.css" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      Inkatha Development Cabinetry | Professional Cabinetry Solutions
+    </title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Open Sans", sans-serif;
+        color: #2c3e50;
+        line-height: 1.6;
+      }
+
+      h1,
+      h2,
+      h3,
+      h4 {
+        font-family: "Montserrat", sans-serif;
+      }
+
+      /* Hero Section */
+      .hero {
+        background: linear-gradient(
+            135deg,
+            rgba(30, 58, 95, 0.92),
+            rgba(74, 144, 226, 0.88)
+          ),
+          url("https://images.unsplash.com/photo-1497366216548-37526070297c?w=1600")
+            center/cover;
+        color: white;
+        padding: 8rem 5% 6rem;
+        text-align: center;
+      }
+
+      .hero-content {
+        max-width: 900px;
+        margin: 0 auto;
+      }
+
+      .hero h1 {
+        font-size: 3rem;
+        margin-bottom: 1.5rem;
+        font-weight: 700;
+        line-height: 1.2;
+      }
+
+      .hero p {
+        font-size: 1.3rem;
+        margin-bottom: 2.5rem;
+        opacity: 0.95;
+      }
+
+      .cta-button {
+        background: #4a90e2;
+        color: white;
+        padding: 1rem 3rem;
+        font-size: 1.1rem;
+        font-weight: 600;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        text-decoration: none;
+        display: inline-block;
+        transition: all 0.3s;
+        box-shadow: 0 4px 15px rgba(74, 144, 226, 0.4);
+      }
+
+      .cta-button:hover {
+        background: #357abd;
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(74, 144, 226, 0.6);
+      }
+
+      /* About Section */
+      .about {
+        padding: 5rem 5%;
+        background: white;
+      }
+
+      .section-content {
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .section-title {
+        font-size: 2.5rem;
+        color: #1e3a5f;
+        margin-bottom: 1rem;
+        text-align: center;
+      }
+
+      .section-subtitle {
+        text-align: center;
+        color: #4a90e2;
+        font-size: 1.1rem;
+        margin-bottom: 3rem;
+        font-weight: 600;
+      }
+
+      .about-text {
+        font-size: 1.1rem;
+        line-height: 1.8;
+        color: #555;
+        max-width: 900px;
+        margin: 0 auto;
+      }
+
+      /* Services Section */
+      .services {
+        padding: 5rem 5%;
+        background: #f8fbff;
+      }
+
+      .services-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 2.5rem;
+        margin-top: 3rem;
+      }
+
+      .service-card {
+        background: white;
+        padding: 2.5rem 2rem;
+        border-radius: 8px;
+        text-align: center;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+        transition: transform 0.3s, box-shadow 0.3s;
+      }
+
+      .service-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 25px rgba(74, 144, 226, 0.15);
+      }
+
+      .service-icon {
+        font-size: 3rem;
+        margin-bottom: 1.5rem;
+        color: #4a90e2;
+      }
+
+      .service-card h3 {
+        font-size: 1.4rem;
+        color: #1e3a5f;
+        margin-bottom: 1rem;
+      }
+
+      .service-card p {
+        color: #666;
+        line-height: 1.6;
+      }
+
+      /* Portfolio Section */
+      .portfolio {
+        padding: 5rem 5%;
+        background: white;
+      }
+
+      .portfolio-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+        margin-top: 3rem;
+      }
+
+      .portfolio-item {
+        position: relative;
+        overflow: hidden;
+        border-radius: 8px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        aspect-ratio: 4/3;
+        background: #e8f4ff;
+      }
+
+      .portfolio-item img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.3s;
+      }
+
+      .portfolio-item:hover img {
+        transform: scale(1.05);
+      }
+
+      .portfolio-caption {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: linear-gradient(transparent, rgba(30, 58, 95, 0.95));
+        color: white;
+        padding: 2rem 1.5rem 1.5rem;
+        transform: translateY(100%);
+        transition: transform 0.3s;
+      }
+
+      .portfolio-item:hover .portfolio-caption {
+        transform: translateY(0);
+      }
+
+      .portfolio-caption h4 {
+        font-size: 1.2rem;
+        margin-bottom: 0.5rem;
+      }
+
+      /* Compliance Section */
+      .compliance {
+        padding: 5rem 5%;
+        background: #1e3a5f;
+        color: white;
+      }
+
+      .compliance .section-title {
+        color: white;
+      }
+
+      .compliance .section-subtitle {
+        color: #a8d0ff;
+      }
+
+      .credentials-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 2rem;
+        margin-top: 3rem;
+      }
+
+      .credential-item {
+        text-align: center;
+        padding: 2rem 1rem;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 8px;
+        transition: background 0.3s;
+      }
+
+      .credential-item:hover {
+        background: rgba(255, 255, 255, 0.15);
+      }
+
+      .credential-icon {
+        font-size: 3rem;
+        margin-bottom: 1rem;
+        color: #4a90e2;
+      }
+
+      .credential-item h4 {
+        font-size: 1.1rem;
+        margin-bottom: 0.5rem;
+      }
+
+      .credential-item p {
+        font-size: 0.9rem;
+        opacity: 0.9;
+      }
+
+      /* Testimonial Section */
+      .testimonial {
+        padding: 5rem 5%;
+        background: #f8fbff;
+        text-align: center;
+      }
+
+      .mission-statement {
+        max-width: 900px;
+        margin: 0 auto;
+        font-size: 1.4rem;
+        line-height: 1.8;
+        color: #2c3e50;
+        font-style: italic;
+        padding: 2rem;
+        border-left: 5px solid #4a90e2;
+        background: white;
+        border-radius: 8px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+      }
+
+      .mission-author {
+        margin-top: 2rem;
+        font-style: normal;
+        font-weight: 600;
+        color: #1e3a5f;
+        font-size: 1.1rem;
+      }
+
+      /* Contact Section */
+      .contact {
+        padding: 5rem 5%;
+        background: white;
+      }
+
+      .contact-container {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 4rem;
+        max-width: 1200px;
+        margin: 3rem auto 0;
+      }
+
+      .contact-form {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+      }
+
+      .form-group {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .form-group label {
+        margin-bottom: 0.5rem;
+        color: #1e3a5f;
+        font-weight: 600;
+      }
+
+      .form-group input,
+      .form-group textarea {
+        padding: 0.9rem;
+        border: 2px solid #e0e0e0;
+        border-radius: 5px;
+        font-family: "Open Sans", sans-serif;
+        font-size: 1rem;
+        transition: border-color 0.3s;
+      }
+
+      .form-group input:focus,
+      .form-group textarea:focus {
+        outline: none;
+        border-color: #4a90e2;
+      }
+
+      .form-group textarea {
+        resize: vertical;
+        min-height: 150px;
+      }
+
+      .contact-info {
+        background: #f8fbff;
+        padding: 2.5rem;
+        border-radius: 8px;
+      }
+
+      .contact-info h3 {
+        color: #1e3a5f;
+        margin-bottom: 1.5rem;
+        font-size: 1.5rem;
+      }
+
+      .info-item {
+        display: flex;
+        align-items: flex-start;
+        margin-bottom: 1.5rem;
+      }
+
+      .info-icon {
+        font-size: 1.5rem;
+        color: #4a90e2;
+        margin-right: 1rem;
+        margin-top: 0.2rem;
+      }
+
+      .info-text h4 {
+        color: #1e3a5f;
+        margin-bottom: 0.3rem;
+        font-size: 1rem;
+      }
+
+      .info-text p {
+        color: #666;
+        line-height: 1.6;
+      }
+
+      /* Footer */
+      footer {
+        background: #1e3a5f;
+        color: white;
+        padding: 2rem 5%;
+        text-align: center;
+      }
+
+      footer p {
+        opacity: 0.9;
+      }
+
+      /* Responsive Design */
+      @media (max-width: 768px) {
+        .hero h1 {
+          font-size: 2rem;
+        }
+
+        .hero p {
+          font-size: 1.1rem;
+        }
+
+        .contact-container {
+          grid-template-columns: 1fr;
+          gap: 2rem;
+        }
+
+        .section-title {
+          font-size: 2rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navigation -->
+    <nav>
+      <div class="nav-container">
+        <img src="/images/logo.png" height="40px" width="80px" alt="">
+        <ul class="nav-links">
+          <li><a href="#about">About</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#portfolio">Portfolio</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="hero-content">
+        <h1>Cabinetry for South Africa's Growth & Development</h1>
+        <p>
+          Delivering exceptional quality furniture and cabinetry solutions for
+          schools, healthcare facilities, and government institutions across
+          South Africa.
+        </p>
+        <a href="#contact" class="cta-button">Request a Quote</a>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+      <div class="section-content">
+        <h2 class="section-title">Building Excellence Since Day One</h2>
+        <p class="section-subtitle">A Legacy of Quality Craftsmanship</p>
+        <div class="about-text">
+          <p>
+            Inkatha Development Cabinetry is a proudly South African company
+            with extensive experience in manufacturing and installing
+            high-quality cabinetry and furniture solutions. Our focus has always
+            been on uplifting our nation's education and healthcare sectors
+            through exceptional craftsmanship and reliable service delivery.
+          </p>
+          <br />
+          <p>
+            From equipping classrooms with durable school desks to providing
+            hospitals with specialized medical cabinetry, we understand the
+            critical role our work plays in creating environments where South
+            Africans can learn, heal, and thrive. Our commitment to excellence
+            and compliance makes us a trusted partner for government tenders and
+            institutional projects nationwide.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+      <div class="section-content">
+        <h2 class="section-title">Our Services</h2>
+        <p class="section-subtitle">
+          Comprehensive Solutions for Institutional Needs
+        </p>
+        <div class="services-grid">
+          <div class="service-card">
+            <div class="service-icon">🎓</div>
+            <h3>School Furniture</h3>
+            <p>
+              Durable desks, chairs, storage units, and classroom furniture
+              designed for educational environments. Built to withstand daily
+              use while promoting effective learning spaces.
+            </p>
+          </div>
+          <div class="service-card">
+            <div class="service-icon">🏥</div>
+            <h3>Healthcare Cabinetry</h3>
+            <p>
+              Specialized medical cabinetry, hospital storage solutions, and
+              healthcare furniture meeting stringent hygiene and safety
+              standards for clinical environments.
+            </p>
+          </div>
+          <div class="service-card">
+            <div class="service-icon">🏛️</div>
+            <h3>Government Projects</h3>
+            <p>
+              Full-service cabinetry and furniture solutions for government
+              buildings, municipal offices, and public institutions. Fully
+              compliant with tender requirements.
+            </p>
+          </div>
+          <div class="service-card">
+            <div class="service-icon">🔨</div>
+            <h3>Custom Carpentry</h3>
+            <p>
+              Bespoke cabinetry and furniture solutions tailored to your
+              specific requirements. From concept to installation, we bring your
+              vision to life with precision.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section class="portfolio" id="portfolio">
+      <div class="section-content">
+        <h2 class="section-title">Our Work</h2>
+        <p class="section-subtitle">
+          Quality Projects Delivered Across South Africa
+        </p>
+        <div class="portfolio-grid">
+          <div class="portfolio-item">
+            <img
+              src="https://images.unsplash.com/photo-1509062522246-3755977927d7?w=600"
+              alt="School classroom with desks"
+            />
+            <div class="portfolio-caption">
+              <h4>Primary School Desks</h4>
+              <p>
+                Complete classroom furniture installation for 15 classrooms in
+                KZN
+              </p>
+            </div>
+          </div>
+          <div class="portfolio-item">
+            <img
+              src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=600"
+              alt="Hospital cabinetry"
+            />
+            <div class="portfolio-caption">
+              <h4>Medical Storage Units</h4>
+              <p>
+                Custom cabinetry for hospital pharmacy and storage facilities
+              </p>
+            </div>
+          </div>
+          <div class="portfolio-item">
+            <img
+              src="https://images.unsplash.com/photo-1497366811353-6870744d04b2?w=600"
+              alt="Office furniture"
+            />
+            <div class="portfolio-caption">
+              <h4>Government Office Fit-Out</h4>
+              <p>Complete office furniture solution for municipal building</p>
+            </div>
+          </div>
+          <div class="portfolio-item">
+            <img
+              src="https://images.unsplash.com/photo-1581291518633-83b4ebd1d83e?w=600"
+              alt="Custom cupboards"
+            />
+            <div class="portfolio-caption">
+              <h4>Storage Solutions</h4>
+              <p>Heavy-duty storage cupboards for educational institution</p>
+            </div>
+          </div>
+          <div class="portfolio-item">
+            <img
+              src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?w=600"
+              alt="Conference room"
+            />
+            <div class="portfolio-caption">
+              <h4>Boardroom Furniture</h4>
+              <p>Elegant conference tables and seating for corporate client</p>
+            </div>
+          </div>
+          <div class="portfolio-item">
+            <img
+              src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=600"
+              alt="Library shelving"
+            />
+            <div class="portfolio-caption">
+              <h4>Library Shelving Systems</h4>
+              <p>Custom shelving and study furniture for school library</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Compliance Section -->
+    <section class="compliance">
+      <div class="section-content">
+        <h2 class="section-title">Compliance & Credentials</h2>
+        <p class="section-subtitle">Fully Accredited and Tender-Ready</p>
+        <div class="credentials-grid">
+          <div class="credential-item">
+            <div class="credential-icon">✓</div>
+            <h4>CSD Registered</h4>
+            <p>Central Supplier Database compliant and verified</p>
+          </div>
+          <div class="credential-item">
+            <div class="credential-icon">⭐</div>
+            <h4>BEE Level Certified</h4>
+            <p>Broad-Based Black Economic Empowerment accredited</p>
+          </div>
+          <div class="credential-item">
+            <div class="credential-icon">📋</div>
+            <h4>Tax Clearance</h4>
+            <p>Valid tax compliance certificate from SARS</p>
+          </div>
+          <div class="credential-item">
+            <div class="credential-icon">🛡️</div>
+            <h4>Safety Standards</h4>
+            <p>Full compliance with SANS and OHS regulations</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonial/Mission Section -->
+    <section class="testimonial">
+      <div class="section-content">
+        <h2 class="section-title">Our Mission</h2>
+        <div class="mission-statement">
+          "We believe that quality furniture and cabinetry is more than just
+          wood and hardware. It's about creating environments where our children
+          can learn, where our sick can heal, and where our public servants can
+          serve with dignity. Every desk, every cabinet, every piece we craft is
+          our contribution to building a stronger South Africa."
+          <p class="mission-author">— Inkatha Development Cabinetry Team</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+      <div class="section-content">
+        <h2 class="section-title">Get In Touch</h2>
+        <p class="section-subtitle">Let's Build Something Great Together</p>
+        <div class="contact-container">
+          <form class="contact-form">
+            <div class="form-group">
+              <label for="name">Full Name *</label>
+              <input type="text" id="name" name="name" required />
+            </div>
+            <div class="form-group">
+              <label for="email">Email Address *</label>
+              <input type="email" id="email" name="email" required />
+            </div>
+            <div class="form-group">
+              <label for="phone">Phone Number *</label>
+              <input type="tel" id="phone" name="phone" required />
+            </div>
+            <div class="form-group">
+              <label for="message">Project Details *</label>
+              <textarea id="message" name="message" required></textarea>
+            </div>
+            <button type="submit" class="cta-button">Submit Request</button>
+          </form>
+          <div class="contact-info">
+            <h3>Contact Information</h3>
+            <div class="info-item">
+              <div class="info-icon">📍</div>
+              <div class="info-text">
+                <h4>Office Location</h4>
+                <p>Durban, KwaZulu-Natal<br />South Africa</p>
+              </div>
+            </div>
+            <div class="info-item">
+              <div class="info-icon">📞</div>
+              <div class="info-text">
+                <h4>Phone</h4>
+                <p>+27 XX XXX XXXX</p>
+              </div>
+            </div>
+            <div class="info-item">
+              <div class="info-icon">✉️</div>
+              <div class="info-text">
+                <h4>Email</h4>
+                <p>info@inkathadevelopment.co.za</p>
+              </div>
+            </div>
+            <div class="info-item">
+              <div class="info-icon">⏰</div>
+              <div class="info-text">
+                <h4>Business Hours</h4>
+                <p>
+                  Monday - Friday: 8:00 AM - 5:00 PM<br />Saturday: By
+                  Appointment
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <p>
+        &copy; 2025 Inkatha Development Cabinetry. All rights reserved. |
+        Building South Africa, One Project at a Time.
+      </p>
+    </footer>
+  </body>
+</html>
